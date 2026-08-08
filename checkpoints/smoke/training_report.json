@@ -1,0 +1,21 @@
+{
+  "trainable_parameters": 141006,
+  "total_training_seconds": 0.09019136428833008,
+  "epochs": 1,
+  "best_val_loss": 2.6847591400146484,
+  "hardware": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+    "python_version": "3.14.6",
+    "torch_version": "2.13.0+cpu",
+    "cuda_available": false
+  },
+  "training_log": [
+    {
+      "epoch": 1,
+      "train_loss": 2.6530614693959556,
+      "val_loss": 2.6847591400146484,
+      "seconds": 0.07864260673522949
+    }
+  ]
+}

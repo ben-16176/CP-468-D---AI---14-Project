@@ -6,16 +6,21 @@ LLM baseline (zero-shot and few-shot) on the same test set.
 
 ## 1. Setup
 
-Use PowerShell from the project root.
+Use PowerShell from the project root (Windows).
 
 ```powershell
+# Create a venv and activate it (Windows PowerShell)
 python -m venv venv
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-.\venv\bin\Activate.ps1
+.\venv\Scripts\Activate.ps1
+pip install --upgrade pip
 pip install -r requirements.txt
-```
 
-If pip cannot find a PyTorch wheel for your interpreter, install it manually from the official PyTorch index for your Python version and OS, then rerun the command above.
+# If pip cannot find a compatible PyTorch wheel for your Python/OS,
+# install the CPU-only wheel (works on most machines) and then
+# re-run `pip install -r requirements.txt` if needed:
+pip install --index-url https://download.pytorch.org/whl/cpu torch --no-deps
+```
 
 
 If you'll run the LLM baseline, set your API key:
@@ -45,6 +50,21 @@ no leakage between splits).
 
 ```powershell
 python -m src.train --config configs/config.yaml
+```
+
+## Quick smoke test (validate pipeline locally)
+
+If you want to quickly verify everything is working end-to-end using the
+included tiny smoke dataset, run these commands from the project root in
+PowerShell after activating the venv:
+
+```powershell
+.\venv\Scripts\Activate.ps1
+# Train one quick epoch on the smoke dataset (created in `data/smoke`)
+python -m src.train --config configs/config_smoke.yaml
+
+# Evaluate the saved smoke checkpoint on the smoke validation split
+python -m src.evaluate --config configs/config_smoke.yaml --checkpoint checkpoints/smoke/best_model.pt --split val
 ```
 
 - Architecture: `Embedding -> Bidirectional LSTM Encoder -> Bahdanau Attention
