@@ -1,0 +1,27 @@
+# Reproducibility
+seed: 42
+
+# Data
+data_dir: data
+max_len: 40           # max tokens per sentence (incl. <sos>/<eos>)
+min_freq: 2            # min token frequency to be included in vocab
+max_vocab_size: 30000
+
+# Model architecture
+emb_dim: 128
+hidden_dim: 256
+encoder_layers: 2      # bidirectional LSTM encoder
+decoder_layers: 1      # must stay 1 -- see NOTE in src/model.py
+dropout: 0.2
+
+# Training
+batch_size: 32
+eval_batch_size: 32
+epochs: 8
+lr: 0.001
+clip: 1.0
+teacher_forcing_ratio: 0.7
+
+# Output locations
+checkpoint_dir: checkpoints
+output_dir: outputs

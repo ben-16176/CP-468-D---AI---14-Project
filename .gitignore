@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+venv/
+*.egg-info/
+
+data/*.tsv
+data/raw/
+data/raw_spa.txt
+
+checkpoints/*.pt
+checkpoints/*.json
+!checkpoints/.gitkeep
+
+outputs/*
+!outputs/.gitkeep
+
+.DS_Store
