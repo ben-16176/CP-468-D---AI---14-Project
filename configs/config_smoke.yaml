@@ -1,0 +1,22 @@
+seed: 42
+
+data_dir: data/smoke
+max_len: 20
+min_freq: 1
+max_vocab_size: 1000
+
+emb_dim: 32
+hidden_dim: 64
+encoder_layers: 1
+decoder_layers: 1
+dropout: 0.1
+
+batch_size: 2
+eval_batch_size: 2
+epochs: 1
+lr: 0.01
+clip: 1.0
+teacher_forcing_ratio: 0.7
+
+checkpoint_dir: checkpoints/smoke
+output_dir: outputs/smoke
